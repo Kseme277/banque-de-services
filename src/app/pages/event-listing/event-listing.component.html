@@ -1,0 +1,135 @@
+<section class="hero-section hero-50 d-flex justify-content-center align-items-center" id="section_1">
+  <div class="section-overlay"></div>
+
+  <svg viewBox="0 0 1962 178" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#2e71c9" d="M 0 114 C 118.5 114 118.5 167 237 167 L 237 167 L 237 0 L 0 0 Z"></path>
+    <path fill="#2e71c9" d="M 236 167 C 373 167 373 128 510 128 L 510 128 L 510 0 L 236 0 Z"></path>
+    <path fill="#2e71c9" d="M 509 128 C 607 128 607 153 705 153 L 705 153 L 705 0 L 509 0 Z"></path>
+    <path fill="#2e71c9" d="M 704 153 C 812 153 812 113 920 113 L 920 113 L 920 0 L 704 0 Z"></path>
+    <path fill="#2e71c9" d="M 919 113 C 1048.5 113 1048.5 148 1178 148 L 1178 148 L 1178 0 L 919 0 Z"></path>
+    <path fill="#2e71c9" d="M 1177 148 C 1359.5 148 1359.5 129 1542 129 L 1542 129 L 1542 0 L 1177 0 Z"></path>
+    <path fill="#2e71c9" d="M 1541 129 C 1751.5 129 1751.5 138 1962 138 L 1962 138 L 1962 0 L 1541 0 Z"></path>
+  </svg>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-12">
+        <h1 class="text-white mb-4 pb-2">Nos services</h1>
+        <a href="#section_3" class="btn custom-btn smoothscroll me-3">Explorer</a>
+      </div>
+    </div>
+  </div>
+
+  <svg viewBox="0 0 1962 178" xmlns="http://www.w3.org/2000/svg">
+    <path fill="#ffffff" d="M 0 114 C 118.5 114 118.5 167 237 167 L 237 167 L 237 0 L 0 0 Z"></path>
+    <path fill="#ffffff" d="M 236 167 C 373 167 373 128 510 128 L 510 128 L 510 0 L 236 0 Z"></path>
+    <path fill="#ffffff" d="M 509 128 C 607 128 607 153 705 153 L 705 153 L 705 0 L 509 0 Z"></path>
+    <path fill="#ffffff" d="M 704 153 C 812 153 812 113 920 113 L 920 113 L 920 0 L 704 0 Z"></path>
+    <path fill="#ffffff" d="M 919 113 C 1048.5 113 1048.5 148 1178 148 L 1178 148 L 1178 0 L 919 0 Z"></path>
+    <path fill="#ffffff" d="M 1177 148 C 1359.5 148 1359.5 129 1542 129 L 1542 129 L 1542 0 L 1177 0 Z"></path>
+    <path fill="#ffffff" d="M 1541 129 C 1751.5 129 1751.5 138 1962 138 L 1962 138 L 1962 0 L 1541 0 Z"></path>
+  </svg>
+</section>
+
+<section class="events-section section-padding" id="section_2">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-12">
+        <h2 class="mb-lg-5 mb-4">Services principaux</h2>
+      </div>
+
+      @for (service of featuredServices; track service.slug) {
+        <div class="col-lg-6 col-12" [class.mb-5]="!$last" [class.mb-lg-0]="!$last">
+          <div class="custom-block-image-wrap">
+            <a [routerLink]="['/services', service.slug]">
+              <img [src]="service.image" class="custom-block-image img-fluid" [alt]="service.title" />
+              <i class="custom-block-icon bi-link"></i>
+            </a>
+
+            <div class="custom-block-date-wrap">
+              <strong class="text-white">{{ service.category }}</strong>
+            </div>
+
+            <div class="custom-btn-wrap">
+              <a [routerLink]="['/services', service.slug]" class="btn custom-btn">Voir</a>
+            </div>
+          </div>
+
+          <div class="custom-block-info">
+            <a [routerLink]="['/services', service.slug]" class="events-title mb-2">{{ service.title }}</a>
+            <p class="mb-0">{{ service.summary }}</p>
+
+            <div class="border-top mt-4 pt-3">
+              <div class="d-flex flex-wrap align-items-center mb-1">
+                <span class="custom-block-span">Zone:</span>
+                <p class="mb-0">{{ service.coverage }}</p>
+              </div>
+
+              <div class="d-flex flex-wrap align-items-center">
+                <span class="custom-block-span">Disponibilité:</span>
+                <p class="mb-0">{{ service.availability }}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>
+
+<section class="events-section events-listing-section section-bg section-padding" id="section_3">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 col-12">
+        <h2 class="mb-3">Autres services</h2>
+      </div>
+
+      @for (service of otherServices; track service.slug; let isOdd = $odd) {
+        <div class="row custom-block" [class.mb-3]="!isOdd" [class.custom-block-bg]="isOdd">
+          <div class="col-lg-2 col-md-4 col-12 order-2 order-md-0 order-lg-0">
+            <div class="custom-block-date-wrap service-category-badge mt-3 mt-lg-0 mt-md-0">
+              <div class="service-icon-badge">
+                <i class="bi" [ngClass]="getServiceVisual(service).icon"></i>
+              </div>
+              <strong class="text-white service-category-label">{{ service.category }}</strong>
+            </div>
+          </div>
+
+          <div class="col-lg-4 col-md-8 col-12 order-1 order-lg-0">
+            <div class="custom-block-image-wrap">
+              <a [routerLink]="['/services', service.slug]">
+                <img [src]="service.image" class="custom-block-image img-fluid" [alt]="service.title" />
+                <i class="custom-block-icon bi-link"></i>
+              </a>
+            </div>
+          </div>
+
+          <div class="col-lg-6 col-12 order-3 order-lg-0">
+            <div class="custom-block-info mt-2 mt-lg-0">
+              <a [routerLink]="['/services', service.slug]" class="events-title mb-3">{{ service.title }}</a>
+              <p class="mb-0">{{ service.summary }}</p>
+
+              <div class="d-flex flex-wrap border-top mt-4 pt-3">
+                <div class="mb-4 mb-lg-0">
+                  <div class="d-flex flex-wrap align-items-center mb-1">
+                    <span class="custom-block-span">Zone:</span>
+                    <p class="mb-0">{{ service.coverage }}</p>
+                  </div>
+
+                  <div class="d-flex flex-wrap align-items-center">
+                    <span class="custom-block-span">Disponibilité:</span>
+                    <p class="mb-0">{{ service.availability }}</p>
+                  </div>
+                </div>
+
+                <div class="d-flex align-items-center ms-lg-auto">
+                  <a [routerLink]="['/services', service.slug]" class="btn custom-btn">Voir le détail</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+  </div>
+</section>

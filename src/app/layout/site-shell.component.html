@@ -1,0 +1,243 @@
+<div class="page-loader" [class.is-active]="isPageLoading" [attr.aria-hidden]="!isPageLoading">
+  <div class="page-loader-content">
+    <div class="page-loader-spinner" aria-label="Chargement en cours"></div>
+    <p class="page-loader-text">Chargement...</p>
+  </div>
+</div>
+
+<nav class="navbar navbar-expand-lg">
+  <div class="container">
+    <a class="navbar-brand d-flex align-items-center" routerLink="/">
+      <img src="logo.png" class="navbar-brand-image img-fluid" alt="Banque de Service" />
+    </a>
+
+    <div class="d-lg-none ms-auto me-3">
+      <a
+        class="btn custom-btn custom-border-btn"
+        data-bs-toggle="offcanvas"
+        href="#offcanvasExample"
+        role="button"
+        aria-controls="offcanvasExample"
+      >
+        Contact rapide
+      </a>
+    </div>
+
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarNav"
+      aria-controls="navbarNav"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-lg-auto">
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/']" fragment="section_1">Accueil</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/']" fragment="section_2">À propos</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/']" fragment="section_3">Prestations</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/']" fragment="section_4">Services</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" [routerLink]="['/']" fragment="section_5">Contact</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a
+            class="nav-link dropdown-toggle"
+            href="#"
+            id="navbarLightDropdownMenuLink"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Navigation
+          </a>
+
+          <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
+            <li>
+              <a class="dropdown-item" routerLink="/services" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                Nos services
+              </a>
+            </li>
+
+            <li>
+              <a class="dropdown-item" routerLink="/services/location-materiel-agricole" routerLinkActive="active">
+                Détail service
+              </a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+
+      <div class="d-none d-lg-block ms-lg-3">
+        <a
+          class="btn custom-btn custom-border-btn"
+          data-bs-toggle="offcanvas"
+          href="#offcanvasExample"
+          role="button"
+          aria-controls="offcanvasExample"
+        >
+          Contact rapide
+        </a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<div
+  class="offcanvas offcanvas-end"
+  data-bs-scroll="true"
+  tabindex="-1"
+  id="offcanvasExample"
+  aria-labelledby="offcanvasExampleLabel"
+>
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Demande de contact</h5>
+
+    <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+  </div>
+
+  <div class="offcanvas-body d-flex flex-column">
+    <form id="form-contact-rapide" class="custom-form member-login-form" action="https://formspree.io/f/xkopzare" method="POST" role="form" data-redirect="false">
+      <div class="member-login-form-body">
+        <div class="mb-4">
+          <label class="form-label mb-2" for="quick-contact-name">Votre nom</label>
+          <input
+            type="text"
+            name="name"
+            id="quick-contact-name"
+            class="form-control"
+            placeholder="Nom complet"
+            required
+          />
+        </div>
+
+        <div class="mb-4">
+          <label class="form-label mb-2" for="quick-contact-email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="quick-contact-email"
+            pattern="[^ @]*@[^ @]*"
+            class="form-control"
+            placeholder="Adresse email"
+            required
+          />
+        </div>
+
+        <div class="mb-4">
+          <label class="form-label mb-2" for="quick-contact-phone">Téléphone</label>
+          <input
+            type="text"
+            name="phone"
+            id="quick-contact-phone"
+            class="form-control"
+            placeholder="+237 96918906"
+            required
+          />
+        </div>
+
+        <div class="form-check mb-4">
+          <input class="form-check-input" type="checkbox" name="callback_request" value="yes" id="flexCheckDefault" />
+          <label class="form-check-label" for="flexCheckDefault">Je souhaite être recontacté rapidement</label>
+        </div>
+
+        <div class="col-lg-5 col-md-7 col-8 mx-auto">
+          <button type="submit" class="form-control">Envoyer</button>
+        </div>
+
+        <div class="text-center my-4">
+          <a href="mailto:contact@bs-cameroun.com">contact@bs-cameroun.com</a>
+        </div>
+      </div>
+    </form>
+
+    <div class="mt-auto mb-5">
+      <p>
+        <strong class="text-white me-3">Cameroun</strong>
+        <a href="tel:+23796918906" class="contact-link">+237 96918906</a>
+      </p>
+    </div>
+  </div>
+
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <path
+      fill="#2e71c9"
+      fill-opacity="1"
+      d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"
+    ></path>
+  </svg>
+</div>
+
+<main>
+  <router-outlet></router-outlet>
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-12 me-auto mb-5 mb-lg-0">
+        <a class="navbar-brand d-flex align-items-center" routerLink="/">
+          <img src="logo.png" class="navbar-brand-image img-fluid" alt="Banque de Service" />
+        </a>
+      </div>
+
+      <div class="col-lg-3 col-12">
+        <h5 class="site-footer-title mb-4">Cameroun</h5>
+
+        <p class="d-flex border-bottom pb-3 mb-3 me-lg-3">
+          <span>Lun-Sam</span>
+          7:00 - 18:00
+        </p>
+
+        <p class="d-flex me-lg-3">
+          <span>Ville</span>
+          Yaoundé
+        </p>
+        <br />
+        <p class="copyright-text">Copyright © 2026 BS Banque de Service</p>
+      </div>
+
+      <div class="col-lg-2 col-12 ms-auto">
+        <ul class="social-icon mt-lg-5 mt-3 mb-4">
+          <li class="social-icon-item">
+            <a href="#" class="social-icon-link bi-instagram"></a>
+          </li>
+
+          <li class="social-icon-item">
+            <a href="#" class="social-icon-link bi-twitter"></a>
+          </li>
+
+          <li class="social-icon-item">
+            <a href="#" class="social-icon-link bi-whatsapp"></a>
+          </li>
+        </ul>
+        <p class="copyright-text">Services de proximité, maintenance et accompagnement.</p>
+      </div>
+    </div>
+  </div>
+
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+    <path
+      fill="#2e71c9"
+      fill-opacity="1"
+      d="M0,224L34.3,192C68.6,160,137,96,206,90.7C274.3,85,343,139,411,144C480,149,549,107,617,122.7C685.7,139,754,213,823,240C891.4,267,960,245,1029,224C1097.1,203,1166,181,1234,160C1302.9,139,1371,117,1406,106.7L1440,96L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"
+    ></path>
+  </svg>
+</footer>
