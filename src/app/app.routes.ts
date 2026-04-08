@@ -4,13 +4,13 @@ export const routes: Routes = [
   {
     path: '',
     loadComponent: () => import('./pages/home/home.component').then((m) => m.HomeComponent),
-    title: 'Banque de Services | BS'
+    title: 'Banque de services | BS'
   },
   {
     path: 'services',
     loadComponent: () =>
       import('./pages/event-listing/event-listing.component').then((m) => m.EventListingComponent),
-    title: 'Banque de Services | Nos services'
+    title: 'Banque de services | Nos services'
   },
   {
     path: 'services/:slug',
